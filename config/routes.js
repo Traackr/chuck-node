@@ -31,6 +31,5 @@ module.exports = function (app) {
 
  // API Endpoints  
  app.get('/api/1', home.api)
- // app.all('/api/1/subscriptions*', subscriptions.validateAppUser)
  app.post('/api/1/triumphs/:triumph_id/rate', triumphs.rate)
 }

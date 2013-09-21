@@ -13,7 +13,7 @@ var crypto = require('crypto')
  
 
  /**
-  * Create a 40 character md5 hash from given input
+  * Create an md5 hash from given input
   * 
   * @param input {String}
   */ 
