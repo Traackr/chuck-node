@@ -20,12 +20,12 @@ var mongoose = require('mongoose')
  */
 exports.index = function (req, res, next) {
   featFinder.findRandomTriumph(function(err, triumph) {
-  	if (err) return next(err);
-  	else {
-			return res.status(200).render('home', {
-					triumph: triumph
-			})
-  	}
+    if (err) return next(err);
+    else {
+      return res.status(200).render('home', {
+       triumph: triumph
+      })
+    }
   })
 }
 
