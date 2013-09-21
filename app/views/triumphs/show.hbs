@@ -1,0 +1,23 @@
+    <div class="triumph">
+        {{#with triumph}}
+            <div class="row">
+              <div class="large-12 columns">
+                <h2>{{text}}</h2>
+                <br>
+                <b>Created On: </b>{{dateFormat created format="M/D/YYYY H:mm:ss"}}<br/>
+                <b>Text Hash:</b> <span class="tag">{{textHash}}</span><br/>
+                <b>Tags:</b> <span class="tag">{{tags}}</span><br/>
+                <b>Likes:</b> <span class="tag">{{likes}}</span><br/>
+                <b>Dislikes:</b> <span class="tag">{{dislikes}}</span><br/>
+              <hr/>
+            <form action="/triumphs/{{_id}}" method="post" class="center form-inline confirm">
+                  <input type="hidden" name="_csrf" value="undefined"><a href="/triumphs/{{_id}}/edit" title="edit" class="button">Edit</a>
+                  &nbsp;&nbsp;
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="button alert">delete</button>
+                </form>
+                <a href="/triumphs">Show All</a>
+              </div>
+            </div>
+      {{/with}}
+      </div>

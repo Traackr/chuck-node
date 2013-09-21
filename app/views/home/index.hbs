@@ -1,0 +1,39 @@
+{{#if triumph}}
+	{{#with triumph}}
+<div class="mainPage">
+<div class="row">
+  <div class="large-12 columns"><div class="question">What can CHUCK NORRIS do?</div></div>
+</div>
+<div class="row">
+	<div class="large-12 columns"><center><img width="500" src="/img/chuck-big.jpg"/></center></div>
+</div>
+
+
+<div class="row">
+  <div class="large-1 columns">&nbsp;</div>
+  <div class="large-10 columns">
+			<center><div class="triumph-text">{{text}}
+        <hr/>
+        <br/>
+        <div class="tags">Categorized as: {{tags}}</div>
+      </div>
+      </center>
+
+  </div>
+  <div class="large-1 columns">&nbsp;</div>
+</div>
+
+<div class="row">
+  <div class="large-4 columns">Likes:  <span id="likes">{{likes}}</span>
+  <br/>
+  	<img class="up" data-id="{{_id}}" src="/img/up.png" width="50"/>
+  </div>
+  <div class="large-4 columns">Score: <span id="score">{{score}}</div></span>
+  <div class="large-4 columns">Dislikes:   <span id="dislikes">{{dislikes}}</span>
+  <br/>
+  	<img class="down"  data-id="{{_id}}"  src="/img/down.png" width="50"/>
+  </div>
+</div>
+</div>
+{{/with}}
+{{/if}}

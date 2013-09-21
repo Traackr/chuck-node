@@ -1,0 +1,29 @@
+<form method="post" action="/triumphs{{#if triumph.isNew}}{{else}}/{{triumph._id}}{{/if}}" enctype="multipart/form-data" class="form-horizontal">
+  <input type="hidden" name="_csrf" value="undefined">
+    <fieldset>
+    <legend>What Can Chuck Do?</legend>
+      {{#if triumph.isNew}}{{else}}<input type="hidden" name="_method" value="PUT" />{{/if}}   
+
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Chuck Can: </label>
+        <input id="text" type="text" name="text" value="{{triumph.text}}" placeholder="What can't chuck do?">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Tags: </label>
+        <input id="tags" type="text" name="tags" value="{{triumph.tags}}" placeholder="Tags" type="text">
+      </div>
+    </div>   
+
+    <div class="row">
+      <div class="large-12 columns">
+      <div class="form-actions">
+        <button type="submit" class="button success">Save changes</button>&nbsp;<a href="/triumphs" title="cancel" class="button alert">Cancel</a>
+      </div       
+      </div>
+    </div>         
+  </fieldset>
+</form>

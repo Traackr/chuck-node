@@ -1,0 +1,35 @@
+          <table>
+            <thead>
+              <tr>
+                <th><span>Text</span></th>
+                <th><span>Text Hash</span></th>
+                <th><span>Tags</span></th>
+                <th nowrap><span>Likes</span></th>
+                <th><span>Dislikes</span></th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {{#each triumphs}}
+              <tr>
+                <td nowrap> 
+                  <a href="/triumphs/{{_id}}">{{text}}</a>
+                </td>
+                <td>
+                  {{textHash}}
+                </td>
+                <td nowrap> 
+                  {{tags}}
+                </td>
+                <td>{{likes}}</td>
+                <td>{{dislikes}}</td>
+                <td><form action="/triumphs/{{_id}}" method="post" class="center form-inline confirm">
+                  <input type="hidden" name="_csrf" value="undefined"><a href="/triumphs/{{_id}}/edit" title="edit" class="button">Edit</a>
+                  &nbsp;&nbsp;
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="button alert">delete</button>
+                </form>
+                </td>
+              </tr>
+            {{/each}}
+            </tbody>

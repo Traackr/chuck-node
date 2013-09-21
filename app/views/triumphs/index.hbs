@@ -1,0 +1,24 @@
+        <div class="main-head">
+          <h2>Chuck's Triumphs!</h2>
+        </div>
+        {{> triumphs/list}}
+        </table><br>
+        <div class="pagination-centered">
+        <ul class="pagination">
+          {{#paginate pagination type="previous"}}
+            <li class="arrow {{#if disabled}} unavailable"{{/if}}"><a href="?page={{n}}" >«</a></li>
+          {{/paginate}}
+          {{#paginate pagination type="middle" limit="7"}}
+            <li {{#if active}}class="current"{{/if}}><a href="?page={{n}}">{{n}}</a></li>
+          {{/paginate}}
+          {{#paginate pagination type="next"}}
+            <li class="arrow {{#if disabled}} unavailable"{{/if}}"><a href="?page={{n}}">»</a></li>
+          {{/paginate}}
+        </ul> 
+        </div>       
+        <hr/>
+
+        <a href="/triumphs/new">Add a Triumph</a>
+
+        <center>
+        </center>

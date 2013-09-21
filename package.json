@@ -1,0 +1,49 @@
+{
+  "name": "chuck-node",
+  "description": "A simple node.js mongoose handlebars mvc boilerplate",
+  "version": "0.0.1",
+  "author": {
+    "name": "Paul Kist",
+    "email": "paul@traackr.com"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "NODE_PATH=./app/controllers NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "test": "NODE_PATH=./app/controllers NODE_ENV=test mocha"
+  },
+  "dependencies": {
+    "express": "3.3.5",
+    "express-namespace": "0.1.1",
+    "mongoose": "3.6.17",
+    "mongoose-user": "0.0.1",
+    "connect-mongo": "0.3.3",
+    "connect-flash": "0.1.1",
+    "view-helpers": "0.1.2",
+    "async": "0.2.9",
+    "forever": "0.10.8",
+    "moment": "1.0.0",
+    "underscore": "1.5.1",
+    "express3-handlebars": "0.5.0",
+    "node-mandrill": "latest",
+    "handlebars-paginate" : "0.0.1"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "nodemon": "0.7.10",
+    "mocha": "1.13.0",
+    "should": "1.3.0",
+    "supertest": "0.8.0",
+    "grunt-mocha-test": "0.6.3",
+    "grunt-env": "0.4.0"
+  },
+  "keywords": [
+    "boilerplate",
+    "nodejs",
+    "mongoose",
+    "foundation",
+    "handlebars"
+  ]
+}
