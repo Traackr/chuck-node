@@ -83,3 +83,43 @@ The files you'll wanna update:
  - Add routes to config/routes.js
  - Create your Model and Controllers
  - Create your views
+ 
+ 
+## Deploying on Heroku
+
+The overall steps to deploy Chuck Node on Heroku are:
+
+1. Create and configure the application on Heroku
+2. Push the application to Heroku
+3. Configure the application
+
+This assumes you have installed the Heroku cli on your machine ([https://toolbelt.heroku.com/](https://toolbelt.heroku.com/))
+
+
+### Create the application on heroku.com
+
+Create a new application for Chick Node on Heroku and make sure to install an add-on for MongoDB, e.g. MongoHQ Sandbox (free).
+The URL for you application should be http://<app-name>.kerokuapp.com.
+Heroku also creates a git repo for your application: git@heroku.com:<ap-name>.git
+
+### Push the application to Heroku
+
+With Heroku you can push and deploy an application as if you where pushing your code to a remote git repository.
+
+- Add Heroku as a remote repository: `git remote add heroku git@heroku.com:<ap-name>.git`
+- Push + deploy code: `git push heroku master`
+
+### Configure the application
+
+Heroku (and the application) uses environment variables to configure the application (see `config/config.js`). You will need to define the following environment variables with Heroku:
+
+- `heroku config:set NODE_ENV=production`
+- `heroku config:set PORT=80`
+- `heroku config:set MONGOHQ_URL=mongodb://<username>:<password>@paulo.mongohq.com:10053/<mongohq-app-id>` (_this would be the syntax if you used MongoHQ as an add-on for your hosted MongoDB database _)
+
+You might need to restart the application for these to take effect: `heroku restart`
+
+
+
+
+
