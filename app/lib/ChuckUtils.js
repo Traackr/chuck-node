@@ -16,6 +16,7 @@ var crypto = require('crypto')
   * Create an md5 hash from given input
   * 
   * @param input {String}
+  * @example of using crypto NodeJs module
   */ 
  exports.md5hash = function(input) {
  	return crypto.createHash('md5').update(input).digest("hex");
@@ -23,7 +24,7 @@ var crypto = require('crypto')
 
 
  /**
-  * Hashes the 
+  * Takes input text to lowercase and returns hash
   */
  exports.hashText = function(text) {
   var lower = text.toLowerCase()

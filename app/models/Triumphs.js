@@ -16,6 +16,7 @@ var mongoose = require('mongoose')
  * Custom Getters
  * 
  * This custom method will be set in the schema definition, for when the property is accessed
+ * @example of a Mongoose Schema custom getter @see schema definition below
  */
 var getTags = function (tags) {
   return tags.join(',')
@@ -25,6 +26,7 @@ var getTags = function (tags) {
  * Custom Setters
  *
  * These custom methods will be set in the schema definition, for when the property is set
+* @example of a Mongoose Schema custom setter @see schema definition below
  */
 var setTags = function (tags) {
   return tags.split(',')
@@ -35,6 +37,7 @@ var setTags = function (tags) {
  *
  * Schema definitions are where you can set up your 
  * fields, types, defaults, and other settings
+ * @example of a schema definition.  Note, custom getters and stters, minimums, and defaults
  */
 var TriumphSchema = new Schema({
   text: {type : String, default : '', trim : true},
@@ -48,6 +51,7 @@ var TriumphSchema = new Schema({
  * Virtuals
  *
  * Virtuals are fields that are not persisted but are dynamically generating values.
+ * @example of mongoose virtuals (Non-persisted fields)
  */
 TriumphSchema.virtual('score').get(function () {
   return this.likes - this.dislikes;
@@ -55,8 +59,11 @@ TriumphSchema.virtual('score').get(function () {
 TriumphSchema.virtual('created').get(function () {
   return this._id.getTimestamp();
 });
+
 /**
  * Validations
+ *
+ * @example of Schema built in validations
  */
 TriumphSchema.path('text').validate(function (text) {
   return text.length > 4
@@ -65,6 +72,8 @@ TriumphSchema.path('text').validate(function (text) {
 /**
  * Pre-save hook
  * You can check here if a triumph exists before saving
+ *
+ * @example of a pre-save hook
  */
 TriumphSchema.pre('save', function(next) {
   var self = this
@@ -79,6 +88,7 @@ TriumphSchema.pre('save', function(next) {
   }
   else {
     // If new, look up by hash to see if text exists
+    // @example of an exists check before a save
     mongoose.models['Triumph'].findOne({ textHash : self.textHash }, function(err,result) {
       if (err) {
         next(err)
@@ -96,6 +106,7 @@ TriumphSchema.pre('save', function(next) {
  * Methods
  * 
  * Methods are functions that run on the instance of the schema returned 
+ * @example of instance methods
  */
 TriumphSchema.methods = {
 
@@ -126,6 +137,8 @@ TriumphSchema.methods = {
  * 
  * Statics are like methods, except they are for defining functions that exist and can operate
  * directly on the Model
+ *
+ * @example of schema static methods that encapsulate mongoose api db functions
  */
 TriumphSchema.statics = {
 
@@ -145,6 +158,8 @@ TriumphSchema.statics = {
    *
    * @param {ObjectId} options
    * @param {Function} cb   
+   *
+   * @example of skip/limit for pagination
    */
   list: function (options, cb) {
     var criteria = options.criteria || {}

@@ -52,7 +52,7 @@ exports.index = function(req, res, next){
   }
 
   /* 
-   * This is an example of slightly nested callbacks
+   * @example This is an example of slightly nested callbacks
    * Anything deeper than this, you should reconsider how you
    * are structuring your code.
    */
@@ -114,7 +114,7 @@ exports.edit = function (req, res) {
 /**
  * Update Triumph
  *
- * This method makes use of the Underscore library.
+ * @example This method makes use of the Underscore library.
  * The extend function maps differences from one object to another
  */
 exports.update = function(req, res){

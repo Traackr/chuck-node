@@ -7,6 +7,7 @@
  * Developed By: Paul Kist paul@traackr.com
  *
  * ExpressJs Routes Setup
+ * @example routing
  */
 // Controller Definition
 var triumphs = require('../app/controllers/TriumphController')

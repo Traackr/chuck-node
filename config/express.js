@@ -25,6 +25,7 @@ module.exports = function (app, config) {
  *
  * The following section sets the Express view engine to use Handlebars.
  * Handlebars is a templating framework to crate dynamic views based on provided data
+ * @example of using handlebars w/ express @see express3-handlebars module
  ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** */
 
   // Create `ExpressHandlebars` instance with a default layout.
@@ -66,6 +67,7 @@ module.exports = function (app, config) {
  *
  * The following section is standard express setup.  the use method create general middlwares
  * in order to handle certain actions. Parsers, Loggers, Session, View directory, Logging
+ * @example middlewares, global errors, global parsers
  ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** */
   app.configure(function () {
     // bodyParser should be above methodOverride

@@ -20,6 +20,7 @@ var mongoose = require('mongoose')
  *
  * For more about async @see https://github.com/caolan/async
  * @param {Function} callback ( @param {Object} err, @param {Object} triump)
+ * @example using async waterfall to aviod nested callbacks
  */
 exports.findRandomTriumph = function(cb) {
 	async.waterfall([
