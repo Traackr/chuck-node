@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=./app/controllers NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "startWin": "SET NODE_PATH=.\\app\\controllers&&SET NODE_ENV=development&&.\\node_modules\\.bin\\nodemon server.js",
     "test": "NODE_PATH=./app/controllers NODE_ENV=test mocha"
   },
   "dependencies": {

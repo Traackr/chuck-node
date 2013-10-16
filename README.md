@@ -62,7 +62,7 @@ In our `package.json` which is native to NPM, we have a few tasks defined:
       "test": "NODE_PATH=./app/controllers NODE_ENV=test mocha"
       }
       
-So to run the app simply use `npm start` and it will run on port 3000 by default
+So to run the app simply use `npm start` (or `npm run-script startWin` in Windows) and it will run on port 3000 by default
 
 ## Getting Started On Your App
 
