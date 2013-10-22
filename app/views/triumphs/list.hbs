@@ -2,7 +2,6 @@
             <thead>
               <tr>
                 <th><span>Text</span></th>
-                <th><span>Text Hash</span></th>
                 <th><span>Tags</span></th>
                 <th nowrap><span>Likes</span></th>
                 <th><span>Dislikes</span></th>
@@ -12,10 +11,10 @@
             <tbody>
             {{#each triumphs}}
               <tr>
-                <td nowrap> 
+                <td > 
                   <a href="/triumphs/{{_id}}">{{text}}</a>
-                </td>
-                <td>
+                  <br/>
+                  <br/>
                   {{textHash}}
                 </td>
                 <td nowrap> 

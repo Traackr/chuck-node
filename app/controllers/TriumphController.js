@@ -182,10 +182,10 @@ exports.rate = function(req, res, next) {
  */
 function __createTriumph(triumph, errorCallback, successCallback) {
   triumph.save(function (err) {
-  if (!err) {
-    successCallback(triumph);
-  } else {
-    errorCallback(err);
-  }
+    if (!err) {
+      successCallback(triumph);
+    } else {
+      errorCallback(err);
+    }
   })  
 }

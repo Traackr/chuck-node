@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
+  {{> head}}
+  <body style="background-color: #000">
+    <div class="wrapper">
+	 {{> header}}
+      <div class="container">
+        <div class="main-content">
+          <div class="main-head">
+            {{#if errors}}
+            <div class="round alert label">
+              <ul> 
+                {{#each errors}} 
+                  <li>{{this}}</li>
+                {{/each}}
+              </ul>
+            </div>
+            {{/if}}
+		      {{{body}}}
+        </div>
+      </div>
+      <div class="push"></div>
+      {{> footer}}
+    </div>
+    {{> foot}}
+  </body>
+</html>

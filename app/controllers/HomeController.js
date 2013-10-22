@@ -23,7 +23,8 @@ exports.index = function (req, res, next) {
     if (err) return next(err);
     else {
       return res.status(200).render('home', {
-       triumph: triumph
+       triumph: triumph,
+       layout : 'homeDefault'
       })
     }
   })

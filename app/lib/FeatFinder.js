@@ -25,19 +25,20 @@ var mongoose = require('mongoose')
 exports.findRandomTriumph = function(cb) {
 	async.waterfall([
 		// First function gets the count of triumphs
-	    function(callback){
-    		Triumph.count({}, function(err, count) {
+	  function(callback) {
+    	Triumph.count({}, function(err, count) {
 				if (err) callback(err, null);
 				else callback(null,count);
 			})
-	    },
+	  },
 	    // Second function finds a random number
-	    function(count, callback){  
+	  function(count, callback){  
 			var rand = Math.floor(Math.random()*count)
 			callback(null,rand)
-	    },
-	    // Third function finds a random triupmph based on the the random number as an offset
-	    function(index, callback) {
+	  },
+	  
+	  // Third function finds a random triupmph based on the the random number as an offset
+	  function(index, callback) {
  			var options = {
 		    	perPage: 1,
 		    	page: index
@@ -46,8 +47,8 @@ exports.findRandomTriumph = function(cb) {
 				if (err) callback(err, null);
 				else callback(null, triumphs);
 			})
-	    }
+	  }
 	], function (err, triumphs) {
-		cb(err, (triumphs.length&&triumphs.length > 0) ? triumphs[0] : {});
+		cb(err, (triumphs.length && triumphs.length > 0) ? triumphs[0] : {});
 	});
 }

@@ -72,6 +72,7 @@ legend  {
 .question {
   padding-bottom: 40px;
   font-size: 16;
+  text-align: center;
 
 }
 .triumph-text {
@@ -80,10 +81,14 @@ legend  {
   margin-bottom: 40px;
 }
 
+td {
+  vertical-align: top;
+}
+
 .container {
   width: auto;
   margin:0px auto;
-  max-width: 1440px;
+  max-width: 800px;
 }
 
 #score {
@@ -101,13 +106,10 @@ legend  {
   font-size: 1.4em;
 }
 
-
 .event, .comment {
   padding: 15px 0;
   border-top: 1px solid #e8e8e8;
 }
-
-
 
 .error {
   color: #FF2602;
