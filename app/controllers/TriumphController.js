@@ -167,7 +167,7 @@ exports.rate = function(req, res, next) {
   var triumph = req.modelHolder.triumph
   triumph.rate(req.body.rateType, function(err) {
    if (err) return next(err);
-   else return res.status(200).json({status: 'OK' })
+   else return res.status(200).json({ status: 'OK' })
   })
 }
 
