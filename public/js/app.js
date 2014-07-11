@@ -1,5 +1,5 @@
 /**
- * routes.js 
+ * routes.js
  * Traackr: chuck node
  * https://bitbucket.com/traackr/chuck-node
  *
@@ -8,7 +8,7 @@
  *
  * ExpressJs Routes Setup
  */
-$(document).ready(function () {
+$(document).ready(function() {
 
   // Bind Like / Dislike
   $(".up").bind('click', handleLike);
@@ -16,25 +16,34 @@ $(document).ready(function () {
 
   // Setup custom tag inputs
   $('#tags').tagsInput({
-    'height':'60px',
-    'width':'280px'
+    'height': '60px',
+    'width': '280px'
   });
 
   // Rating Handlers
   function handleLike(e) {
     rate('likes');
-  }
-  function handleDislike(e) {
-    rate('dislikes');
+    disable();
   }
 
+  function handleDislike(e) {
+    rate('dislikes');
+    disable();
+  }
+
+  function disable() {
+    $(".up").off('click')
+    $(".down").off('click')
+  }
   /**
    * Rate Function makes an AJAX POST call to the Chuck-Node API
    */
   function rate(rateType) {
-    $.post( '/api/1/triumphs/'+$(".up").attr('data-id') + "/rate", { rateType : rateType }, function( data ) {
-      $("#"+rateType).text(parseInt($("#"+rateType).text())+1)
-      $("#score").text(parseInt($("#likes").text())-parseInt($("#dislikes").text()))
+    $.post('/api/1/triumphs/' + $(".up").attr('data-id') + "/rate", {
+      rateType: rateType
+    }, function(data) {
+      $("#" + rateType).text(parseInt($("#" + rateType).text()) + 1)
+      $("#score").text(parseInt($("#likes").text()) - parseInt($("#dislikes").text()))
     });
   }
 });

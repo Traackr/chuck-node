@@ -22,7 +22,7 @@ var mongoose = require('mongoose')
  * Used as middlewear to bind actual requested object by ID to request object so its available to other
  * Controller methods
  */
-exports.load = function(req, res, next, id){
+exports.load = function(req, res, next, id) {
   Triumph.load(id, function (err, triumph) {
     if (err) return next(err)
     if (!triumph)  {
@@ -97,7 +97,7 @@ exports.create = function (req, res) {
       errors: chuckUtil.errors(err)
     })
   }, function(triumph) {
-    return res.redirect('/triumphs/'+triumph._id)
+    return res.redirect('/')
   })
 }
 

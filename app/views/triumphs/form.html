@@ -1,11 +1,11 @@
 <form method="post" action="/triumphs{{#if triumph.isNew}}{{else}}/{{triumph._id}}{{/if}}" enctype="application/x-www-form-urlencoded" class="form-horizontal">
     <fieldset>
-    <legend>What Can Chuck Do?</legend>
+    <legend>What Can Chuck Norris Do?</legend>
       {{#if triumph.isNew}}{{else}}<input type="hidden" name="_method" value="PUT" />{{/if}}   
 
     <div class="row">
       <div class="large-12 columns">
-        <label>Chuck Can: </label>
+        <label>Chuck Norris Can: </label>
         <input id="text" type="text" name="text" value="{{triumph.text}}" placeholder="What can chuck do?">
       </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="large-12 columns">
       <div class="form-actions">
-        <button type="submit" class="button success">Save changes</button>&nbsp;<a href="/triumphs" title="cancel" class="button alert">Cancel</a>
+        <button type="submit" class="button success">Save changes</button>&nbsp;<a href="/" title="cancel" class="button alert">Cancel</a>
       </div       
       </div>
     </div>         
