@@ -44,8 +44,8 @@ module.exports = function(app) {
 
    // Web Triumph Endpoints
    app.get('/triumphs/', auth, triumphs.index)
-   app.get('/facts/new', auth, triumphs.new)
-   app.post('/triumphs', auth, triumphs.create)
+   app.get('/facts/new', triumphs.new)
+   app.post('/triumphs', triumphs.create)
    app.get('/triumphs/:triumph_id', auth, triumphs.show)
    app.get('/triumphs/:triumph_id/edit', auth, triumphs.edit)
    app.put('/triumphs/:triumph_id', auth, triumphs.update)
