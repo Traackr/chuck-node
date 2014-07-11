@@ -76,9 +76,9 @@ fs.readdirSync(__dirname + '/app/models').forEach(function (file) {
 var app = express()
 
 /*
- * /Config/express.js is where our express app is set up and configured.
+ * Config/express.js is where our express app is set up and configured.
  */
-require('./config/express')(app, config)
+require('./config/express')(app, config);
 
 /*
  * Bootstrap all routes
@@ -88,7 +88,7 @@ require('./config/routes')(app)
 /*
  * Start the app by listening on <port>
  */
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 8080
 app.listen(port)
 console.log('Express app started on port ' + port)
 

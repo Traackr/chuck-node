@@ -124,9 +124,7 @@ TriumphSchema.methods = {
     var updateQuery = {};
     updateQuery.$inc = {}
     updateQuery.$inc[field] = 1;
-    console.log(updateQuery)
     this.update(updateQuery, { w : 1 }, function(err,x) {
-      console.log(x)
       cb(err, null);
     })
   }  
