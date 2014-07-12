@@ -9,7 +9,7 @@
  * Home Controller
  */
 var mongoose = require('mongoose')
-  , Triumph = mongoose.model('Triumph')
+  , Fact = mongoose.model('Fact')
   , featFinder = require('../lib/FeatFinder')
 
 
@@ -19,11 +19,11 @@ var mongoose = require('mongoose')
  * Example of using a custom lib to find data and passing callback
  */
 exports.index = function (req, res, next) {
-  featFinder.findRandomTriumph(function(err, triumph) {
+  featFinder.findRandomFact(function(err, fact) {
     if (err) return next(err);
     else {
       return res.status(200).render('home', {
-       triumph: triumph,
+       fact: fact,
        layout : 'homeDefault'
       })
     }

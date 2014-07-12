@@ -9,10 +9,10 @@
               </tr>
             </thead>
             <tbody>
-            {{#each triumphs}}
+            {{#each facts}}
               <tr>
                 <td > 
-                  <a href="/triumphs/{{_id}}">{{text}}</a>
+                  <a href="/facts/{{_id}}">{{text}}</a>
                   <br/>
                   <br/>
                   {{textHash}}
@@ -22,8 +22,8 @@
                 </td>
                 <td>{{likes}}</td>
                 <td>{{dislikes}}</td>
-                <td><form action="/triumphs/{{_id}}" method="post" class="center form-inline confirm">
-                  <input type="hidden" name="_csrf" value="undefined"><a href="/triumphs/{{_id}}/edit" title="edit" class="button">Edit</a>
+                <td><form action="/facts/{{_id}}" method="post" class="center form-inline confirm">
+                  <input type="hidden" name="_csrf" value="undefined"><a href="/facts/{{_id}}/edit" title="edit" class="button">Edit</a>
                   &nbsp;&nbsp;
                   <input type="hidden" name="_method" value="DELETE">
                   <button type="submit" class="button alert">delete</button>

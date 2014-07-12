@@ -1,12 +1,12 @@
 /**
- * Triumphs.js 
+ * Facts.js 
  * Traackr: chuck node
  * https://bitbucket.com/traackr/chuck-node
  *
  * Copyright (c) 2013 Traackr
  * Developed By: Paul Kist paul@traackr.com
  *
- * Triumph Mongoose Schema
+ * Fact Mongoose Schema
  */
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema
@@ -33,13 +33,13 @@ var setTags = function (tags) {
 }
 
 /**
- * Triumph Schema
+ * Fact Schema
  *
  * Schema definitions are where you can set up your 
  * fields, types, defaults, and other settings
  * @example of a schema definition.  Note, custom getters and stters, minimums, and defaults
  */
-var TriumphSchema = new Schema({
+var FactSchema = new Schema({
   text: {type : String, default : '', trim : true},
   textHash: { type : String, trim : true },
   tags: {type: [], get: getTags, set: setTags },
@@ -53,10 +53,10 @@ var TriumphSchema = new Schema({
  * Virtuals are fields that are not persisted but are dynamically generating values.
  * @example of mongoose virtuals (Non-persisted fields)
  */
-TriumphSchema.virtual('score').get(function () {
+FactSchema.virtual('score').get(function () {
   return this.likes - this.dislikes;
 });
-TriumphSchema.virtual('created').get(function () {
+FactSchema.virtual('created').get(function () {
   return this._id.getTimestamp();
 });
 
@@ -65,17 +65,17 @@ TriumphSchema.virtual('created').get(function () {
  *
  * @example of Schema built in validations
  */
-TriumphSchema.path('text').validate(function (text) {
+FactSchema.path('text').validate(function (text) {
   return text.length > 4
 }, 'Text cannot be less than 5 characters.  Chuck can do better than that.')
 
 /**
  * Pre-save hook
- * You can check here if a triumph exists before saving
+ * You can check here if a fact exists before saving
  *
  * @example of a pre-save hook
  */
-TriumphSchema.pre('save', function(next) {
+FactSchema.pre('save', function(next) {
   var self = this
   // Check for existence
   if (!ChuckUtils.exists(this.text))
@@ -89,11 +89,11 @@ TriumphSchema.pre('save', function(next) {
   else {
     // If new, look up by hash to see if text exists
     // @example of an exists check before a save
-    mongoose.models['Triumph'].findOne({ textHash : self.textHash }, function(err,result) {
+    mongoose.models['Fact'].findOne({ textHash : self.textHash }, function(err,result) {
       if (err) {
         next(err)
       } else if (result) {
-        next(new Error('Triumph exists')) 
+        next(new Error('Fact exists')) 
       } else {
         next();
       }
@@ -108,7 +108,7 @@ TriumphSchema.pre('save', function(next) {
  * Methods are functions that run on the instance of the schema returned 
  * @example of instance methods
  */
-TriumphSchema.methods = {
+FactSchema.methods = {
 
    /**
     * Increments the value of the given field
@@ -138,10 +138,10 @@ TriumphSchema.methods = {
  *
  * @example of schema static methods that encapsulate mongoose api db functions
  */
-TriumphSchema.statics = {
+FactSchema.statics = {
 
   /**
-   * Find Triumph by id
+   * Find Fact by id
    *
    * @param {ObjectId} id
    * @param {Function} cb
@@ -168,4 +168,4 @@ TriumphSchema.statics = {
   }
 }
 
-mongoose.model('Triumph', TriumphSchema)
+mongoose.model('Fact', FactSchema, 'triumphs')

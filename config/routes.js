@@ -10,7 +10,7 @@
  * @example routing
  */
 // Controller Definition
-var triumphs = require('../app/controllers/TriumphController'),
+var facts = require('../app/controllers/FactController'),
    home = require('../app/controllers/HomeController'),
    express = require('express'),
    env = process.env.NODE_ENV || 'development',
@@ -42,17 +42,17 @@ module.exports = function(app) {
 
    app.get('/', home.index)
 
-   // Web Triumph Endpoints
-   app.get('/triumphs/', auth, triumphs.index)
-   app.get('/facts/new', triumphs.new)
-   app.post('/triumphs', triumphs.create)
-   app.get('/triumphs/:triumph_id', auth, triumphs.show)
-   app.get('/triumphs/:triumph_id/edit', auth, triumphs.edit)
-   app.put('/triumphs/:triumph_id', auth, triumphs.update)
-   app.del('/triumphs/:triumph_id', auth, triumphs.destroy)
-   app.param('triumph_id', triumphs.load)
+   // Web Fact Endpoints
+   app.get('/facts/', auth, facts.index)
+   app.get('/facts/new', facts.new)
+   app.post('/facts', facts.create)
+   app.get('/facts/:fact_id', auth, facts.show)
+   app.get('/facts/:fact_id/edit', auth, facts.edit)
+   app.put('/facts/:fact_id', auth, facts.update)
+   app.del('/facts/:fact_id', auth, facts.destroy)
+   app.param('fact_id', facts.load)
 
    // API Endpoints  
    app.get('/api/1', home.api)
-   app.post('/api/1/triumphs/:triumph_id/rate', triumphs.rate)
+   app.post('/api/1/facts/:fact_id/rate', facts.rate)
 }

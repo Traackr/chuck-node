@@ -37,7 +37,7 @@ legend {
     font-size: 1.4em;
     color: #000;
 }
-.triumph {
+.fact {
     font-size: 1.2em;
 }
 .mainPage {
@@ -60,7 +60,7 @@ legend {
     font-size: 16;
     text-align: center;
 }
-.triumph-text {
+.fact-text {
     font-size: 28px;
     padding: 10px;
     margin-bottom: 10px;
@@ -108,6 +108,7 @@ td {
 .up, .down {
     font-size: 1.5em;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 #submit-chuck-fact {
     margin: auto;
@@ -127,15 +128,22 @@ td {
 
 }
 
+
+input.fact-input {
+   font-size: 30px;
+}
 @media only screen and (max-width: 480px) {
     body {
         font-size: 9px;
     }
-    .triumph-text {
+    .fact-text {
         font-size: 14px;
         line-height: 20px;
     }
 
+    .up, .down {
+      font-size: 20px;
+    }
     #score {
         color: #22f;
         font-size: 10px;

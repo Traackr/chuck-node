@@ -39,7 +39,7 @@ $(document).ready(function() {
    * Rate Function makes an AJAX POST call to the Chuck-Node API
    */
   function rate(rateType) {
-    $.post('/api/1/triumphs/' + $(".up").attr('data-id') + "/rate", {
+    $.post('/api/1/facts/' + $(".up").attr('data-id') + "/rate", {
       rateType: rateType
     }, function(data) {
       $("#" + rateType).text(parseInt($("#" + rateType).text()) + 1)

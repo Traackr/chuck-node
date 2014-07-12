@@ -1,4 +1,4 @@
-{{#if triumph}} {{#with triumph}}
+{{#if fact}} {{#with fact}}
 <div class="mainPage">
     <div class="row">
         <div class="large-12 columns">
@@ -17,7 +17,7 @@
     <div class="row">
         <div class="large-12 columns">
             <center>
-                <div class="triumph-text">{{text}}
+                <div class="fact-text">{{text}}
                     <br/>
                     <span class="reload"><a href="/">NEXT</a>
                     </span>
@@ -29,21 +29,22 @@
 
     <div class="score-board">
         <div class="row">
-            <div class="large-5 small-5 columns">
-                Likes:
-                <span id="likes">{{likes}}</span>
-                <i data-id="{{_id}}" class="up fa fa-thumbs-up"></i>
+            <div class="large-6 small-6 columns" style="text-align: center;">
+                <i data-id="{{_id}}" class="button round success up fa fa-thumbs-up"></i>
+                <br/><span id="likes">{{likes}}</span>
 
             </div>
-            <div class="large-2 small-2 columns">
-            </div>
-            <div class="large-5 small-5 columns" style="text-align: right;">Dislikes:
-                <span id="dislikes">{{dislikes}}</span>
-                <i data-id="{{_id}}" class="down fa fa-thumbs-down"></i>
+            <div class="large-6 small-6 columns" style="text-align: center;">
+                <i data-id="{{_id}}" class="button round alert down fa fa-thumbs-down"></i>
+                <br/><span id="dislikes">{{dislikes}}</span>
             </div>
         </div>
     </div>
     {{/with}} {{/if}}
 
-    <div id="submit-chuck-fact"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a>
+    <div id="submit-chuck-fact" style="text-align:center"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a>
     </div>
+
+    <div style="text-align:center"><small>Copyright &copy; 2014 TRAACKR</small></div>
+</div>
+

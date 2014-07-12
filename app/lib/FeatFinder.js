@@ -9,12 +9,12 @@
  * Finds a random FEAT!
  */
 var mongoose = require('mongoose')
-  , Triumph = mongoose.model('Triumph')
+  , Fact = mongoose.model('Fact')
   , async = require('async')
 
 
 /**
- * Returns a random triumph from the database
+ * Returns a random fact from the database
  * This function highlights the use of async waterfall, if you want to chain asynchronous commands,
  * so you don't end up in the depths of nested callback hell
  *
@@ -22,11 +22,11 @@ var mongoose = require('mongoose')
  * @param {Function} callback ( @param {Object} err, @param {Object} triump)
  * @example using async waterfall to aviod nested callbacks
  */
-exports.findRandomTriumph = function(cb) {
+exports.findRandomFact = function(cb) {
 	async.waterfall([
-		// First function gets the count of triumphs
+		// First function gets the count of facts
 	  function(callback) {
-    	Triumph.count({}, function(err, count) {
+    	Fact.count({}, function(err, count) {
 				if (err) callback(err, null);
 				else callback(null,count);
 			})
@@ -43,12 +43,12 @@ exports.findRandomTriumph = function(cb) {
 		    	perPage: 1,
 		    	page: index
 		  	}
-			Triumph.list(options, function(err, triumphs) {
+			Fact.list(options, function(err, facts) {
 				if (err) callback(err, null);
-				else callback(null, triumphs);
+				else callback(null, facts);
 			})
 	  }
-	], function (err, triumphs) {
-		cb(err, (triumphs.length && triumphs.length > 0) ? triumphs[0] : {});
+	], function (err, facts) {
+		cb(err, (facts.length && facts.length > 0) ? facts[0] : {});
 	});
 }

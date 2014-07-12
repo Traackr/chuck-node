@@ -1,0 +1,28 @@
+<form method="post" action="/facts{{#if fact.isNew}}{{else}}/{{fact._id}}{{/if}}" enctype="application/x-www-form-urlencoded" class="form-horizontal">
+    <fieldset>
+    <legend>Chuck Norris Fact:</legend>
+      {{#if fact.isNew}}{{else}}<input type="hidden" name="_method" value="PUT" />{{/if}}   
+
+    <div class="row">
+      <div class="large-12 columns">
+        <label></label>
+        <input class="fact-input" id="text" type="text" name="text" value="{{fact.text}}" placeholder="What can Chuck Norris do?">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Tags: </label>
+        <input id="tags" type="text" name="tags" value="{{fact.tags}}" placeholder="Tags" type="text">
+      </div>
+    </div>   
+
+    <div class="row">
+      <div class="large-12 columns">
+      <div class="form-actions">
+        <button type="submit" class="button success">Save changes</button>&nbsp;<a href="/" title="cancel" class="button alert">Cancel</a>
+      </div       
+      </div>
+    </div>         
+  </fieldset>
+</form>
