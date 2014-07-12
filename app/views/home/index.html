@@ -1,36 +1,45 @@
-{{#if triumph}}
-	{{#with triumph}}
+{{#if triumph}} {{#with triumph}}
 <div class="mainPage">
-<div class="row">
-  <div class="large-12 columns"><div class="question">Chuck Norris Fact:</div></div>
-</div>
-<div class="row">
-	<div class="large-12 columns"><center><img width="500" src="/img/chuck-big.jpg"/></center></div>
-</div>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="question">Chuck Norris Fact:</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <center>
+                <img width="500" src="/img/chuck-big.jpg" />
+            </center>
+        </div>
+    </div>
 
 
-<div class="row">
-  <div class="large-12 columns">
-			<center><div class="triumph-text">{{text}}
-      <br/>
-      <small class="reload"><a href="/">NEXT</a></small>
-      </div>
-      </center>
+    <div class="row">
+        <div class="large-12 columns">
+            <center>
+                <div class="triumph-text">{{text}}
+                    <br/>
+                    <span class="reload"><a href="/">NEXT</a>
+                    </span>
+                </div>
+            </center>
 
-  </div>
-</div>
+        </div>
+    </div>
 
-<div class="row">
-  <div class="large-4 columns">Likes:  <span id="likes">{{likes}}</span>
-  <br/>
-  	<img class="up" data-id="{{_id}}" src="/img/up.png" width="50"/>
-  </div>
-  <div class="large-4 columns">Score: <span id="score">{{score}}</div></span>
-  <div class="large-4 columns">Dislikes:   <span id="dislikes">{{dislikes}}</span>
-  <br/>
-  	<img class="down"  data-id="{{_id}}"  src="/img/down.png" width="50"/>
-  </div>
-</div>
-</div>
-{{/with}}
-{{/if}}
+    <div class="row">
+        <div class="large-4 small-4 columns">Likes:
+            <span id="likes">{{likes}}</span>
+            <br/>
+            <img class="up" data-id="{{_id}}" src="/img/up.png" />
+        </div>
+        <div class="large-4 small-4 columns">Score:
+            <span id="score">{{score}}</span>
+        </div>
+        <div class="large-4 small-4 columns">Dislikes:
+            <span id="dislikes">{{dislikes}}</span>
+            <br/>
+            <img class="down" data-id="{{_id}}" src="/img/down.png" />
+        </div>
+    </div>
+        {{/with}} {{/if}}

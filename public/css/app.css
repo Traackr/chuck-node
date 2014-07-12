@@ -1,135 +1,137 @@
 @font-face {
-    font-family: 'Press Start';
+    font-family:'Press Start';
     src: url('/tt/pressstart2p.eot');
-    src: url('/tt/pressstart2p.eot?#iefix') format('embedded-opentype'),
-         url('/tt/pressstart2p.woff') format('woff'),
-         url('/tt/pressstart2p.ttf') format('truetype'),
-         url('/tt/pressstart2p.svg#press_start_2pregular') format('svg');
+    src: url('/tt/pressstart2p.eot?#iefix') format('embedded-opentype'), url('/tt/pressstart2p.woff') format('woff'), url('/tt/pressstart2p.ttf') format('truetype'), url('/tt/pressstart2p.svg#press_start_2pregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-
 /* BLINK CSS */
-@-webkit-keyframes blink {  
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
+ @-webkit-keyframes blink {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
 }
-
 .blink {
-  -webkit-animation-name: blink;  
-  -webkit-animation-iteration-count: infinite;  
-  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-  -webkit-animation-duration: 1s; 
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -webkit-animation-duration: 1s;
 }
-
-
 body {
-
 }
-
-
 fieldset {
-  background: #ccc;
+    background: #ccc;
 }
-
 table {
-  width: 100%;
+    width: 100%;
 }
-
 label {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #111;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #111;
 }
-
-legend  {
-  font-size: 1.4em;
-  color: #000;
+legend {
+    font-size: 1.4em;
+    color: #000;
 }
-
-
 .triumph {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 .mainPage {
-  font-family: "Press Start";
-  background-color: #000;
-  color:#fff;
-  padding:40px;
+    font-family:"Press Start";
+    background-color: #000;
+    color:#fff;
+    padding:40px;
 }
 .top-bar .name h1 {
-	padding-left: 67px;
-	background-image: url('/img/chuck.png');
-	background-repeat: no-repeat;
+    padding-left: 67px;
+    background-image: url('/img/chuck.png');
+    background-repeat: no-repeat;
 }
-
 .tags {
-  font-size: 0.5em;
-  color: #8a0;
+    font-size: 0.5em;
+    color: #8a0;
 }
-
 .question {
-  padding-bottom: 40px;
-  font-size: 16;
-  text-align: center;
-
+    padding-bottom: 40px;
+    font-size: 16;
+    text-align: center;
 }
 .triumph-text {
-  font-size: 36px;
-  padding: 40px;
-  margin-bottom: 10px;
-  line-height: 45px;
+    font-size: 36px;
+    padding: 40px;
+    margin-bottom: 10px;
+    line-height: 45px;
 }
-
 .reload a {
-  color: #3f2;
-  -webkit-animation-name: blink;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-  -webkit-animation-duration: 1.5s;
-  font-size: 0.6em;
+    color: #3f2;
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -webkit-animation-duration: 1.5s;
+    font-size: 0.6em;
 }
-
 td {
-  vertical-align: top;
+    vertical-align: top;
 }
-
 .container {
-  width: auto;
-  margin:0px auto;
-  max-width: 800px;
+    width: auto;
+    margin:0px auto;
+    max-width: 800px;
 }
-
 #score {
-  color: #22f;
-  font-size: 1.4em;
+    color: #22f;
+    font-size: 1.4em;
 }
-
 #likes {
-  color: #2f2;
-  font-size: 1.4em;
+    color: #2f2;
+    font-size: 1.4em;
 }
-
 #dislikes {
-  color: #f22;
-  font-size: 1.4em;
+    color: #f22;
+    font-size: 1.4em;
 }
-
 .event, .comment {
-  padding: 15px 0;
-  border-top: 1px solid #e8e8e8;
+    padding: 15px 0;
+    border-top: 1px solid #e8e8e8;
 }
-
 .error {
-  color: #FF2602;
+    color: #FF2602;
 }
-
 .form-actions {
-  border: 0;
-  margin-top: 20px;
+    border: 0;
+    margin-top: 20px;
 }
-
-.up,.down {
-  margin:20px;
+.up, .down {
+    margin:20px;
+    width: 50px;
+}
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .triumph-text {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .up, .down {
+        width: 20px;
+        margin: auto;
+        padding-top:10px;
+    }
+    #score {
+        color: #22f;
+        font-size: 12px;
+    }
+    #likes {
+        color: #2f2;
+        font-size: 12px;
+    }
+    #dislikes {
+        color: #f22;
+        font-size: 12px;
+    }
 }
