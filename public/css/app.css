@@ -155,4 +155,8 @@ td {
         line-height: 14px;
         font-size: 10px;
     }
+    .score-board {
+      width: 95%;
+      margin: 10px;
+    }
 }
