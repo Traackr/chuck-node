@@ -106,7 +106,7 @@ td {
     margin-top: 20px;
 }
 .up, .down {
-    width: 30px;
+    font-size: 1.5em;
     cursor: pointer;
 }
 #submit-chuck-fact {
@@ -120,24 +120,22 @@ td {
 
 .score-board {
   background-color: #222;
-  padding: 16px;
+  padding: 10px;
   border: 3px #2f2 dashed;
+  width: 400px;
+  margin: auto;
 
 }
 
 @media only screen and (max-width: 480px) {
     body {
-        font-size: 10px;
+        font-size: 9px;
     }
     .triumph-text {
         font-size: 14px;
         line-height: 20px;
     }
-    .up, .down {
-        width: 18px;
-        margin: auto;
-        padding-top:10px;
-    }
+
     #score {
         color: #22f;
         font-size: 10px;
