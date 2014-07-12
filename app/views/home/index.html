@@ -27,19 +27,22 @@
         </div>
     </div>
 
+    <div class="score-board">
     <div class="row">
-        <div class="large-4 small-4 columns">Likes:
-            <span id="likes">{{likes}}</span>
-            <br/>
+        <div class="large-5 small-5 columns">
             <img class="up" data-id="{{_id}}" src="/img/up.png" />
+        Likes:
+            <span id="likes">{{likes}}</span>
         </div>
-        <div class="large-4 small-4 columns">Score:
-            <span id="score">{{score}}</span>
+        <div class="large-2 small-2 columns">
         </div>
-        <div class="large-4 small-4 columns">Dislikes:
+        <div class="large-5 small-5 columns">Dislikes:
             <span id="dislikes">{{dislikes}}</span>
-            <br/>
             <img class="down" data-id="{{_id}}" src="/img/down.png" />
         </div>
     </div>
-        {{/with}} {{/if}}
+    </div>
+    {{/with}} {{/if}}
+
+    <div id="submit-chuck-fact"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a></div>
+

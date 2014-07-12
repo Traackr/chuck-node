@@ -44,7 +44,6 @@ legend {
     font-family:"Press Start";
     background-color: #000;
     color:#fff;
-    padding:40px;
     min-height: 900px;
 }
 .top-bar .name h1 {
@@ -62,8 +61,8 @@ legend {
     text-align: center;
 }
 .triumph-text {
-    font-size: 36px;
-    padding: 40px;
+    font-size: 28px;
+    padding: 10px;
     margin-bottom: 10px;
     line-height: 45px;
 }
@@ -85,15 +84,15 @@ td {
 }
 #score {
     color: #22f;
-    font-size: 1.4em;
+    font-size: 1.0em;
 }
 #likes {
     color: #2f2;
-    font-size: 1.4em;
+    font-size: 1.0em;
 }
 #dislikes {
     color: #f22;
-    font-size: 1.4em;
+    font-size: 1.0em;
 }
 .event, .comment {
     padding: 15px 0;
@@ -107,13 +106,28 @@ td {
     margin-top: 20px;
 }
 .up, .down {
-    margin:20px;
-    width: 50px;
+    width: 30px;
     cursor: pointer;
 }
+#submit-chuck-fact {
+    margin: auto;
+    width: 440px;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.score-board {
+  background-color: #222;
+  padding: 16px;
+  border: 3px #2f2 dashed;
+
+}
+
 @media only screen and (max-width: 480px) {
     body {
-        font-size: 12px;
+        font-size: 10px;
     }
     .triumph-text {
         font-size: 14px;
@@ -126,14 +140,21 @@ td {
     }
     #score {
         color: #22f;
-        font-size: 12px;
+        font-size: 10px;
     }
     #likes {
         color: #2f2;
-        font-size: 12px;
+        font-size: 10px;
     }
     #dislikes {
         color: #f22;
-        font-size: 12px;
+        font-size: 10px;
+    }
+    #submit-chuck-fact {
+        margin: auto;
+        margin-top: 40px;
+        width: 200px;
+        line-height: 14px;
+        font-size: 10px;
     }
 }
