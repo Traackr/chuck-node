@@ -45,6 +45,7 @@ legend {
     background-color: #000;
     color:#fff;
     padding:40px;
+    min-height: 900px;
 }
 .top-bar .name h1 {
     padding-left: 67px;
@@ -108,17 +109,18 @@ td {
 .up, .down {
     margin:20px;
     width: 50px;
+    cursor: pointer;
 }
 @media only screen and (max-width: 480px) {
     body {
-        font-size: 14px;
+        font-size: 12px;
     }
     .triumph-text {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
     }
     .up, .down {
-        width: 20px;
+        width: 18px;
         margin: auto;
         padding-top:10px;
     }

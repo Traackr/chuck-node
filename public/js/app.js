@@ -44,6 +44,7 @@ $(document).ready(function() {
     }, function(data) {
       $("#" + rateType).text(parseInt($("#" + rateType).text()) + 1)
       $("#score").text(parseInt($("#likes").text()) - parseInt($("#dislikes").text()))
+      window.location.reload();
     });
   }
 });
