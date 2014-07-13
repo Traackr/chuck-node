@@ -53,10 +53,10 @@ module.exports = function(app) {
    app.del('/facts/:fact_id', auth, facts.destroy)
    app.param('fact_id', facts.load)
 
-   // Fact Bookmarkable
-   app.get('/:fact_id', home.getFact);
-
    // API Endpoints  
    app.get('/api/1', home.api)
    app.post('/api/1/facts/:fact_id/rate', facts.rate)
+
+   // Fact Bookmarkable
+   app.get('/:fact_id', home.getFact);   
 }
