@@ -40,11 +40,14 @@
             </div>
         </div>
     </div>
-    {{/with}} {{/if}}
+
 
     <div id="submit-chuck-fact" style="text-align:center"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a>
+<a href="https://twitter.com/share" data-url="{{#if tinyUrl}}{{tinyUrl}}{{/if}}" data-text="Chuck Norris Fact: {{text}}" class="twitter-share-button" data-lang="en" data-size="large" data-count="none">Tweet this fact</a>
     </div>
-
+    {{/with}} {{/if}}
     <div style="text-align:center"><small>Copyright &copy; 2014 TRAACKR</small></div>
 </div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 

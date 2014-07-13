@@ -41,6 +41,7 @@ var auth = function(req, res, next) {
 module.exports = function(app) {
 
    app.get('/', home.index)
+   app.get('/migrate', facts.tinyUrl)
 
    // Web Fact Endpoints
    app.get('/facts/', auth, facts.index)
@@ -51,6 +52,9 @@ module.exports = function(app) {
    app.put('/facts/:fact_id', auth, facts.update)
    app.del('/facts/:fact_id', auth, facts.destroy)
    app.param('fact_id', facts.load)
+
+   // Fact Bookmarkable
+   app.get('/:fact_id', home.getFact);
 
    // API Endpoints  
    app.get('/api/1', home.api)

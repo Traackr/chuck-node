@@ -1,5 +1,5 @@
 /**
- * home.js 
+ * home.js
  * Traackr: chuck-node
  * https://bitbucket.com/traackr/chuck-node
  *
@@ -8,31 +8,47 @@
  *
  * Home Controller
  */
-var mongoose = require('mongoose')
-  , Fact = mongoose.model('Fact')
-  , featFinder = require('../lib/FeatFinder')
-
+var mongoose = require('mongoose'),
+   Fact = mongoose.model('Fact'),
+   featFinder = require('../lib/FeatFinder'),
+   env = process.env.NODE_ENV || 'development',
+   config = require('../../config/config')[env],
+   https = require('https'),
+   querystring = require('querystring')
+url = require('url')
 
 /**
  * Chuck Node Landing Page
- * 
+ *
  * Example of using a custom lib to find data and passing callback
  */
-exports.index = function (req, res, next) {
-  featFinder.findRandomFact(function(err, fact) {
-    if (err) return next(err);
-    else {
-      return res.status(200).render('home', {
-       fact: fact,
-       layout : 'homeDefault'
-      })
-    }
-  })
+exports.index = function(req, res, next) {
+   featFinder.findRandomFact(function(err, fact) {
+      if (err) return next(err);
+      else {
+         return res.redirect('/' + fact._id);
+      }
+   })
 }
+
+/*
+ * Show Fact
+ */
+exports.getFact = function(req, res) {
+   res.status(200).render('home', {
+      fact: req.modelHolder.fact,
+      layout: 'homeDefault'
+   })
+}
+
 
 /**
  * API Landing Page
  */
 exports.api = function(req, res) {
-	res.status(200).json({ name : "Chuck Node", version : "0.0.1", status : "OK"})
+   res.status(200).json({
+      name: "Chuck Node",
+      version: "0.0.1",
+      status: "OK"
+   })
 }

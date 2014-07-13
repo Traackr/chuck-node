@@ -44,7 +44,8 @@ var FactSchema = new Schema({
   textHash: { type : String, trim : true },
   tags: {type: [], get: getTags, set: setTags },
   likes: {type: Number, default : 0, min : 0 },
-  dislikes  : { type : Number, default : 0, min : 0 }
+  dislikes  : { type : Number, default : 0, min : 0 },
+  tinyUrl : { type : String, trim : true }
 })
 
 /**
@@ -66,8 +67,8 @@ FactSchema.virtual('created').get(function () {
  * @example of Schema built in validations
  */
 FactSchema.path('text').validate(function (text) {
-  return text.length > 4
-}, 'Text cannot be less than 5 characters.  Chuck can do better than that.')
+  return text.length > 4 && text.length <= 140
+}, 'Text cannot be less than 5 characters or more than 120.  Chuck can do better than that.')
 
 /**
  * Pre-save hook
