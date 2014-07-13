@@ -13,10 +13,7 @@ var mongoose = require('mongoose'),
    _ = require('underscore'),
    async = require('async'),
    chuckUtil = require('../lib/ChuckUtils'),
-   querystring = require('querystring'),
-   https = require('https'),
-   env = process.env.NODE_ENV || 'development',
-   config = require('../../config/config')[env]
+   bitlyService = require('../lib/BitlyService')
 
 
 
@@ -186,7 +183,7 @@ exports.tinyUrl = function(req, res) {
    Fact.list(options, function(err, facts) {
       console.log(facts)
       async.eachSeries(facts, function(fact, cb) {
-         __getShortUrl(fact._id, function(err, url) {
+         bitlyService.getShortUrl(fact._id, function(err, url) {
             fact.tinyUrl = url;
             fact.save(function(err) {
                cb(err);
@@ -210,7 +207,7 @@ function __createFact(fact, errorCallback, successCallback) {
    fact.save(function(err, newFact) {
       if (!err) {
          var id = newFact._id;
-         __getShortUrl(id, function(err, tinyUrl) {
+         bitlyService.getShortUrl(id, function(err, tinyUrl) {
             newFact.tinyUrl = tinyUrl;
             newFact.save(function(err, newFact) {
                if (err) {
@@ -224,43 +221,4 @@ function __createFact(fact, errorCallback, successCallback) {
          errorCallback(err);
       }
    })
-}
-
-
-/**
- * Gets shortened URL from the bitly API
- *
- */
-function __getShortUrl(id, cb) {
-   var options = {
-      host: 'api-ssl.bitly.com',
-      path: '/v3/shorten?access_token=' + config.bitly_access_token + '&longUrl=' + config.host + '/' + id,
-      method: 'GET',
-      port: 443,
-      headers: {
-         'Content-Type': 'application/json'
-      }
-   };
-
-   https.globalAgent.options.secureProtocol = 'SSLv3_method';
-   var req = https.request(options, function(res) {
-      res.setEncoding('utf-8');
-      var responseString = '';
-
-      res.on('data', function(data) {
-         responseString += data;
-      });
-
-      res.on('end', function() {
-         console.log(responseString);
-         var responseObject = JSON.parse(responseString);
-         console.log(responseObject);
-         cb(null, responseObject.data.url)
-      });
-   });
-   req.on('error', function(e) {
-      console.log('problem with request: ' + e.message);
-      cb(err, null);
-   });
-   req.end();
 }
