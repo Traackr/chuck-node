@@ -105,7 +105,7 @@ td {
     border: 0;
     margin-top: 20px;
 }
-.up, .down {
+.up, .down, .next {
     font-size: 1.5em;
     cursor: pointer;
     margin-bottom: 10px;
@@ -120,8 +120,8 @@ td {
 }
 .score-board {
     background-color: #222;
-    padding: 10px;
-    border: 3px #2f2 dashed;
+    padding: 20px;
+    border: 1px #ff2 dotted;
     width: 400px;
     margin: auto;
 }
@@ -136,7 +136,7 @@ input.fact-input {
         font-size: 14px;
         line-height: 20px;
     }
-    .up, .down {
+    .up, .down, .next {
         font-size: 20px;
     }
     #score {
