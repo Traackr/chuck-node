@@ -37,6 +37,7 @@ exports.index = function(req, res, next) {
 exports.getFact = function(req, res) {
    res.status(200).render('home', {
       fact: req.modelHolder.fact,
+      title: 'Chuck Norris Fact brought to you by Traackr: ' + req.modelHolder.fact.text,
       layout: 'homeDefault'
    })
 }
