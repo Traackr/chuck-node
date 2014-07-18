@@ -5,6 +5,7 @@
                 <th><span>Tags</span></th>
                 <th nowrap><span>Likes</span></th>
                 <th><span>Dislikes</span></th>
+                <th><span>Author</span></th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -22,6 +23,7 @@
                 </td>
                 <td>{{likes}}</td>
                 <td>{{dislikes}}</td>
+                <td>{{author}},<br/>{{location}}</td>
                 <td><form action="/facts/{{_id}}" method="post" class="center form-inline confirm">
                   <input type="hidden" name="_csrf" value="undefined"><a href="/facts/{{_id}}/edit" title="edit" class="button">Edit</a>
                   &nbsp;&nbsp;

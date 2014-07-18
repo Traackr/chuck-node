@@ -128,6 +128,14 @@ td {
 input.fact-input {
     font-size: 30px;
 }
+
+.byline {
+    font-weight: 100;
+    margin-bottom: 20px;
+    font-size: 10px;
+    color: #ff2;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         font-size: 9px;

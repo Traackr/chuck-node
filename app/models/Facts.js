@@ -1,5 +1,5 @@
 /**
- * Facts.js 
+ * Facts.js
  * Traackr: chuck node
  * https://bitbucket.com/traackr/chuck-node
  *
@@ -8,44 +8,74 @@
  *
  * Fact Mongoose Schema
  */
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , ChuckUtils = require('../lib/ChuckUtils')
+var mongoose = require('mongoose'),
+   Schema = mongoose.Schema,
+   ChuckUtils = require('../lib/ChuckUtils')
 
 /**
  * Custom Getters
- * 
+ *
  * This custom method will be set in the schema definition, for when the property is accessed
  * @example of a Mongoose Schema custom getter @see schema definition below
  */
-var getTags = function (tags) {
-  return tags.join(',')
+var getTags = function(tags) {
+   return tags.join(',')
 }
 
 /**
  * Custom Setters
  *
  * These custom methods will be set in the schema definition, for when the property is set
-* @example of a Mongoose Schema custom setter @see schema definition below
+ * @example of a Mongoose Schema custom setter @see schema definition below
  */
-var setTags = function (tags) {
-  return tags.split(',')
+var setTags = function(tags) {
+   return tags.split(',')
 }
 
 /**
  * Fact Schema
  *
- * Schema definitions are where you can set up your 
+ * Schema definitions are where you can set up your
  * fields, types, defaults, and other settings
  * @example of a schema definition.  Note, custom getters and stters, minimums, and defaults
  */
 var FactSchema = new Schema({
-  text: {type : String, default : '', trim : true},
-  textHash: { type : String, trim : true },
-  tags: {type: [], get: getTags, set: setTags },
-  likes: {type: Number, default : 0, min : 0 },
-  dislikes  : { type : Number, default : 0, min : 0 },
-  tinyUrl : { type : String, trim : true }
+   text: {
+      type: String,
+      default: '',
+      trim: true
+   },
+   textHash: {
+      type: String,
+      trim: true
+   },
+   tags: {
+      type: [],
+      get: getTags,
+      set: setTags
+   },
+   likes: {
+      type: Number,
+      default: 0,
+      min: 0
+   },
+   dislikes: {
+      type: Number,
+      default: 0,
+      min: 0
+   },
+   author: {
+      type: String,
+      trim: true
+   },
+   location: {
+      type: String,
+      trim: true
+   },
+   tinyUrl: {
+      type: String,
+      trim: true
+   }
 })
 
 /**
@@ -54,11 +84,11 @@ var FactSchema = new Schema({
  * Virtuals are fields that are not persisted but are dynamically generating values.
  * @example of mongoose virtuals (Non-persisted fields)
  */
-FactSchema.virtual('score').get(function () {
-  return this.likes - this.dislikes;
+FactSchema.virtual('score').get(function() {
+   return this.likes - this.dislikes;
 });
-FactSchema.virtual('created').get(function () {
-  return this._id.getTimestamp();
+FactSchema.virtual('created').get(function() {
+   return this._id.getTimestamp();
 });
 
 /**
@@ -66,8 +96,8 @@ FactSchema.virtual('created').get(function () {
  *
  * @example of Schema built in validations
  */
-FactSchema.path('text').validate(function (text) {
-  return text.length > 4 && text.length <= 140
+FactSchema.path('text').validate(function(text) {
+   return text.length > 4 && text.length <= 140
 }, 'Text cannot be less than 5 characters or more than 120.  Chuck can do better than that.')
 
 /**
@@ -77,36 +107,37 @@ FactSchema.path('text').validate(function (text) {
  * @example of a pre-save hook
  */
 FactSchema.pre('save', function(next) {
-  var self = this
-  // Check for existence
-  if (!ChuckUtils.exists(this.text))
-    return next(new Error('Text required')) 
-  
-  // Hash Text into a hash for quick lookup if exists...
-  self.textHash = ChuckUtils.hashText(self.text)  
-  if (!this.isNew) {
-    return next() 
-  }
-  else {
-    // If new, look up by hash to see if text exists
-    // @example of an exists check before a save
-    mongoose.models['Fact'].findOne({ textHash : self.textHash }, function(err,result) {
-      if (err) {
-        next(err)
-      } else if (result) {
-        next(new Error('Fact exists')) 
-      } else {
-        next();
-      }
-    })
-  }
+   var self = this
+      // Check for existence
+   if (!ChuckUtils.exists(this.text))
+      return next(new Error('Text required'))
+
+   // Hash Text into a hash for quick lookup if exists...
+   self.textHash = ChuckUtils.hashText(self.text)
+   if (!this.isNew) {
+      return next()
+   } else {
+      // If new, look up by hash to see if text exists
+      // @example of an exists check before a save
+      mongoose.models['Fact'].findOne({
+         textHash: self.textHash
+      }, function(err, result) {
+         if (err) {
+            next(err)
+         } else if (result) {
+            next(new Error('Fact exists'))
+         } else {
+            next();
+         }
+      })
+   }
 })
 
 
 /*
  * Methods
- * 
- * Methods are functions that run on the instance of the schema returned 
+ *
+ * Methods are functions that run on the instance of the schema returned
  * @example of instance methods
  */
 FactSchema.methods = {
@@ -118,22 +149,24 @@ FactSchema.methods = {
     * @param {Function} cb
     */
    rate: function(field, cb) {
-    if (field != 'likes' && field != 'dislikes') {
-      return cb(new Error('must be likes or dislikes'), null)
-    }
-    var self = this;
-    var updateQuery = {};
-    updateQuery.$inc = {}
-    updateQuery.$inc[field] = 1;
-    this.update(updateQuery, { w : 1 }, function(err,x) {
-      cb(err, null);
-    })
-  }  
+      if (field != 'likes' && field != 'dislikes') {
+         return cb(new Error('must be likes or dislikes'), null)
+      }
+      var self = this;
+      var updateQuery = {};
+      updateQuery.$inc = {}
+      updateQuery.$inc[field] = 1;
+      this.update(updateQuery, {
+         w: 1
+      }, function(err, x) {
+         cb(err, null);
+      })
+   }
 }
 
 /**
  * Statics
- * 
+ *
  * Statics are like methods, except they are for defining functions that exist and can operate
  * directly on the Model
  *
@@ -141,32 +174,34 @@ FactSchema.methods = {
  */
 FactSchema.statics = {
 
-  /**
-   * Find Fact by id
-   *
-   * @param {ObjectId} id
-   * @param {Function} cb
-   */
-  load: function (id, cb) {
-    this.findOne({ _id : id })
-      .exec(cb)
-  },
+   /**
+    * Find Fact by id
+    *
+    * @param {ObjectId} id
+    * @param {Function} cb
+    */
+   load: function(id, cb) {
+      this.findOne({
+         _id: id
+      })
+         .exec(cb)
+   },
 
-  /**
-   * Paginated list function
-   *
-   * @param {ObjectId} options
-   * @param {Function} cb   
-   *
-   * @example of skip/limit for pagination
-   */
-  list: function (options, cb) {
-    var criteria = options.criteria || {}
-    this.find(criteria)
-      .limit(options.perPage)
-      .skip(options.perPage * options.page)
-      .exec(cb)
-  }
+   /**
+    * Paginated list function
+    *
+    * @param {ObjectId} options
+    * @param {Function} cb
+    *
+    * @example of skip/limit for pagination
+    */
+   list: function(options, cb) {
+      var criteria = options.criteria || {}
+      this.find(criteria)
+         .limit(options.perPage)
+         .skip(options.perPage * options.page)
+         .exec(cb)
+   }
 }
 
 mongoose.model('Fact', FactSchema, 'triumphs')
