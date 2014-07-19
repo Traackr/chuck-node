@@ -1,3 +1,18 @@
+<style type="text/css">
+    #fbiframe
+{
+transform: scale(1.5);
+-ms-transform: scale(1.5); 
+-webkit-transform: scale(1.5); 
+-o-transform: scale(1.5); 
+-moz-transform: scale(1.5); 
+transform-origin: top left;
+-ms-transform-origin: top left;
+-webkit-transform-origin: top left;
+-moz-transform-origin: top left;
+-webkit-transform-origin: top left;
+}
+</style>
 {{#if fact}} {{#with fact}}
 <div class="mainPage">
     <div class="row">
@@ -50,6 +65,10 @@
 
     <div id="submit-chuck-fact" style="text-align:center"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a>
 <a href="https://twitter.com/share" data-url="{{#if tinyUrl}}{{tinyUrl}}{{/if}}" data-text="Chuck Norris Fact: {{text}}" class="twitter-share-button" data-lang="en" data-size="large" data-count="none">Tweet this fact</a>
+
+
+<div class="fb-like" data-href="{{tinyUrl}}" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+
     </div>
     {{/with}} {{/if}}
     <div style="text-align:center"><small>Copyright &copy; 2014 TRAACKR</small></div>
