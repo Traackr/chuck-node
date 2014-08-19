@@ -43,8 +43,9 @@
 * Traackr: Node.js Boilerplate
 * https://bitbucket.com/traackr/chuck-node
 *
-* Copyright (c) 2013 Traackr
-* Developed By: Paul Kist paul@traackr.com
+* @copyright  Copyright (c) 2013-2014 Traackr, Inc.
+* @author Paul Kist paul@traackr.com
+* @description Chuck Norris is awesome and can do anything.  The same can be said of Node.js.  But really, Node.js has got nothing on Chuck Norris.
 *
 * Server Entry Point
 */

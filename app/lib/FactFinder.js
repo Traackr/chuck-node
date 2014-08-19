@@ -1,12 +1,12 @@
 /**
- * FeatFinder.js 
+ * FactFinder.js 
  * Traackr: chuck node
  * https://bitbucket.com/traackr/chuck-node
  *
  * Copyright (c) 2013 Traackr
  * Developed By: Paul Kist paul@traackr.com
  *
- * Finds a random FEAT!
+ * Finds a random fact
  */
 var mongoose = require('mongoose')
   , Fact = mongoose.model('Fact')

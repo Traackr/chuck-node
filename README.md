@@ -68,9 +68,9 @@ So to run the app simply use `npm start` (or `npm run-script startWin` in Window
 
 The app is structured as follows.  Under the `app` folder are the following directories and their purpose:
 
- - `model` - Schema definitions are here.  Look at `Triumphs.js` as an example
- - `controllers` - Controller classes are here.  Look at `TriumphController.js` as an example
- - `views` - Handlebar templates go here.  Look at `views/triumph` for examples
+ - `model` - Schema definitions are here.  Look at `Facts.js` as an example
+ - `controllers` - Controller classes are here.  Look at `FactController.js` as an example
+ - `views` - Handlebar templates go here.  Look at `views/fact` for examples
  - `lib` - Custom business logic an go here in an organized fashion and included in your main controller via `require`
  - `lib/HandlebarHelpers.js` - here is where you wanna create your own handlebar functions to be used in your templates
  
