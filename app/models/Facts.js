@@ -204,4 +204,4 @@ FactSchema.statics = {
    }
 }
 
-mongoose.model('Fact', FactSchema, 'facts2s')
+mongoose.model('Fact', FactSchema)
