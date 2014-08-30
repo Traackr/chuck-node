@@ -33,7 +33,7 @@ There are examples in this boiler plate to get started with:
 
 ## Requirements and Installation
 
-__Tested on Node 0.10.7, NPM 1.2.21__
+__Tested on Node 0.10.30, NPM 1.4.21__
 
 ### Requirements
  - NodeJS & NPM

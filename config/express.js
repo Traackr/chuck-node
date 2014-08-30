@@ -18,7 +18,7 @@ var helpers = require('view-helpers')
 var hbshelpers = require('../app/lib/HandlebarHelpers')
 var pkg = require('../package')
 var env = process.env.NODE_ENV || 'development'
-var exphbs = require('express3-handlebars')
+var exphbs = require('express-handlebars')
 var expressValidator = require('express-validator')
 var paginate = require('handlebars-paginate')
 var favicon = require('serve-favicon')
@@ -32,7 +32,7 @@ module.exports = function(app, config) {
  *
  * The following section sets the Express view engine to use Handlebars.
  * Handlebars is a templating framework to crate dynamic views based on provided data
- * @example of using handlebars w/ express @see express3-handlebars module
+ * @example of using handlebars w/ express @see express-handlebars module
  ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** */
 
   // Create `ExpressHandlebars` instance with a default layout.

@@ -1,21 +1,6 @@
-<style type="text/css">
-    #fbiframe
-{
-transform: scale(1.5);
--ms-transform: scale(1.5); 
--webkit-transform: scale(1.5); 
--o-transform: scale(1.5); 
--moz-transform: scale(1.5); 
-transform-origin: top left;
--ms-transform-origin: top left;
--webkit-transform-origin: top left;
--moz-transform-origin: top left;
--webkit-transform-origin: top left;
-}
-</style>
 <div class="mainPage">
-{{#if fact}} {{#with fact}}
-
+{{#if fact}} 
+{{#with fact}}
     <div class="row">
         <div class="show-for-large-up large-12 columns">
             <div class="question">Chuck Norris Fact:</div>
@@ -66,10 +51,7 @@ transform-origin: top left;
 
     <div id="submit-chuck-fact" style="text-align:center"><a class="button" href="/facts/new">Submit A Chuck Norris Fact!</a>
 <a href="https://twitter.com/share" data-url="{{#if tinyUrl}}{{tinyUrl}}{{/if}}" data-text="Chuck Norris Fact: {{text}}" class="twitter-share-button" data-lang="en" data-size="large" data-count="none">Tweet this fact</a>
-
-
-<div class="fb-like" data-href="{{tinyUrl}}" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
-
+<div class="fb-share-button" data-type="button" data-layout="button" data-href="{{tinyUrl}}" data-show-faces="false"  data-like="false" data-share="true"></div>
     </div>
     {{/with}} 
     {{else}}
@@ -78,6 +60,4 @@ transform-origin: top left;
     {{/if}}
     <div style="text-align:center"><small>Copyright &copy; 2014 TRAACKR</small></div>
 </div>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
