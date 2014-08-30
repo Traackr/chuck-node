@@ -8,6 +8,9 @@ The sourcecode of the app is meant to serve as an MVC seed project / or boilerpl
 
 If you would like to be a contributor to the project, please contact Paul Kist at [paul AT traackr DOT com](mailto:paul@traackr.com)
 
+## Demo
+[http://chucknode.herokuapp.com](http://chucknode.herokuapp.com)
+
 ## What's here?
 There are examples in this boiler plate to get started with:
 
