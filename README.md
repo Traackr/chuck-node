@@ -1,6 +1,12 @@
 # Chuck Node: A Node.js Boilerplate
 
-Chuck Norris is awesome and can do anything.  The same can be said of Node.js.  But really, Node.js has got nothing on Chuck Norris.
+Chuck Node is an open source project.  The app itself is a crowdsourcing tool for Chuck Norris Facts.  Because Chuck Norris is unstoppable! 
+
+See: [http://en.wikipedia.org/wiki/Chuck_Norris](http://en.wikipedia.org/wiki/Chuck_Norris)
+
+The sourcecode of the app is meant to serve as an MVC seed project / or boilerplate for any Express / MongoDB based NodeJS app.  This can be a starting point for engineers who are looking to get familiar with these technologies, Chuck Node is a great learning tool to get you started.
+
+If you would like to be a contributor to the project, please contact Paul Kist at [paul AT traackr DOT com](mailto:paul@traackr.com)
 
 ## What's here?
 There are examples in this boiler plate to get started with:
@@ -30,6 +36,7 @@ There are examples in this boiler plate to get started with:
 - Coming Soon:
     - Forever (Continuious uptime)
     - Mock Unit Testing
+    - Bower dependency management
 
 ## Requirements and Installation
 
@@ -44,7 +51,7 @@ __Tested on Node 0.10.30, NPM 1.4.21__
 
 After cloning the project for the first time you'll want to update your project dependencies by running npm install in your home directory by doing:
 
-    $ (sudo) npm install
+    $ npm install
 
 If this is successful, continue on by running the unit tests and building the app.  Currently there are no files to build at the moment and no build tasks have been set up.  But testing is part of the build process so simply run:
 
@@ -78,8 +85,8 @@ The app is structured as follows.  Under the `app` folder are the following dire
 The files you'll wanna update:
     
  - Edit the main view templates:
-    -  `layouts/default.hbs`
-    - `partials/*.hbs `   
+    -  `layouts/default.html`
+    - `partials/*.html `   
  - Add routes to config/routes.js
  - Create your Model and Controllers
  - Create your views
