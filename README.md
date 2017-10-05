@@ -31,7 +31,7 @@ There are examples in this boiler plate to get started with:
     - Schema definitions
     - DB action hooks
  - Grunt (A build tool) [http://gruntjs.com/](http://gruntjs.com/)
- - Mocha (Unit Tests) [http://visionmedia.github.io/mocha/](http://visionmedia.github.io/mocha/)
+ - Mocha (Unit Tests) [http://mochajs.org/](http://mochajs.org/)
  - Other Conventions / Tools
     - Async [https://github.com/caolan/async](https://github.com/caolan/async)
     - Underscore [http://underscorejs.org/](http://underscorejs.org/)
